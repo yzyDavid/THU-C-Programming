@@ -6,7 +6,7 @@ void p(char b[]);
 int main()
 {
 	char a[1000];
-	scanf("%s", a);
+	gets(a);
 	p(a);
 	return 0;
 }
