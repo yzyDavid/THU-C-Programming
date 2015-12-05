@@ -14,7 +14,7 @@ int main()
 void p(char b[])
 {
 	char c[1000];
-	char deleted[100];		/*这个数组存储已经处理过的字符的列表*/
+	char deleted[1000];		/*这个数组存储已经处理过的字符的列表*/
 	int pDeleted = 0;
 	int len, flag;
 	int i, j, k = 0, l;
@@ -25,7 +25,7 @@ void p(char b[])
 		{
 			flag = 0;
 			for (j = 0; j < pDeleted; ++j)		/*判断这个字符是否已经处理过*/
-				if (b[i] == deleted[pDeleted])
+				if (b[i] == deleted[j])
 					flag = 1;
 			if (!flag)
 			{
@@ -36,8 +36,15 @@ void p(char b[])
 					if (b[j] == b[i])
 					{
 						l++;
-						if (l != 1 && l != 3 && l != 6)
-							b[j] = 0;
+						switch (l)
+						{
+							case 1:
+							case 3:
+							case 6:
+								break;
+							default:
+								b[j] = 0;
+						}
 					}
 				}
 			}
